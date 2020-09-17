@@ -15,6 +15,70 @@ section {
   padding: 100px 0px;
 }
 
+@keyframes fadein {
+
+  0% {
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+@keyframes slide-right {
+  0%{
+    margin-left: -15vw;
+
+  }
+  100%{
+    margin-left: 5vw;
+
+  }
+}
+
+@keyframes arrow-right {
+  0%{
+    margin-left: -30vw;
+
+  }
+  90%{
+    margin-left: 45.8vw;
+  }
+  100%{
+    margin-left: 45vw;
+
+  }
+}
+
+@keyframes slide-left {
+  0%{
+    margin-right: -15vw;
+
+    opacity: 0%;
+  }
+  100%{
+    margin-right: 5vw;
+
+    opacity: 100%;
+  }
+}
+
+@keyframes arrow-left {
+  0%{
+    margin-left: 130vw;
+  }
+
+  90%{
+    margin-left: 52.6vw;
+
+  }
+  100%{
+    margin-left: 53.2vw;
+  }
+
+}
+
+
 .timeline {
   position: relative;
 }
@@ -38,6 +102,7 @@ section {
 .timeline-item {
   width: 100%;
 	margin-bottom: 70px;
+  animation: fadein .6s;
 }
 
 .timeline-item > .timeline-item-dot {
@@ -45,13 +110,14 @@ section {
   width: 30px;
   height: 30px;
   color: #fff;
-  background: #FFA6C1;
+  background: #FF5D8F;
   position: absolute;
   left: 49%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .timeline-card{
@@ -63,10 +129,44 @@ section {
 	background: #FADDE1;
 	box-shadow: 0 20px 25px -15px rgba(200, 128, 139, .5);
   overflow: hidden;
+  -webkit-animation: slide-right .6s;
+  -moz-animation: slide-right .6s;
+  animation: slide-right .6s;
+  transition-timing-function: ease-in-out;
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+  margin-left: auto;
+  margin-right: 5vw;
+  -webkit-animation: slide-left .6s;
+  -moz-animation: slide-left .6s;
+  animation: slide-left .6s;
+  transition-timing-function: ease-in-out;
+}
+
+.timeline-item:nth-child(even) time {
+  right:auto;
+  left: 0;
+}
+
+.timeline-item:nth-child(even)::before{
+  margin-left: 53.2vw;
+  margin-top: 10vh;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 26.0px 15px 0 ;
+  animation: arrow-left .6s;
+  border-color: transparent #FFA6C1 transparent transparent ;
+  transition-timing-function: ease-in-out;
+
 }
 
 .timeline-item::before{
-    margin-left: 45%;
+    margin-left: 45vw;
     margin-top: 10vh;
     position: absolute;
     content: "";
@@ -76,6 +176,8 @@ section {
     border-style: solid;
     border-width: 15px 0 15px 26.0px;
     border-color: transparent transparent transparent #FFA6C1;
+    animation: arrow-right .6s;
+    transition-timing-function: ease;
 }
 
 .timeline-card > img + h2 {
@@ -91,6 +193,11 @@ section {
   margin-left: -10%;
   margin-top: -10%;
   filter: grayscale(50%) brightness(85%);
+
+}
+
+.timeline-card a {
+  text-decoration: none;
 
 }
 
