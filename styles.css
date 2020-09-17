@@ -21,7 +21,7 @@ section {
 .timeline::before {
   content: '';
   background: #FFA6C1;
-  width: 5px;
+  width: .5%;
 	height: 95%;
 	position: absolute;
 	left: 50%;
@@ -31,43 +31,77 @@ section {
 .container {
   display: flex;
   flex-direction: column;
+  margin-right: auto;
+
 }
 
 .timeline-item {
   width: 100%;
 	margin-bottom: 70px;
-
 }
 
-.timeline-card-fadein-left{
+.timeline-item > .timeline-item-dot {
+  margin-top: 10vh;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  background: #FFA6C1;
+  position: absolute;
+  left: 49%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-card{
   position: relative;
-  left: 5vw;
 	width: 40%;
-	padding: 10px 30px;
+  margin-left: 5vw;
+	padding: 10px 30px 30px;
 	border-radius: 10px;
 	background: #FADDE1;
-	box-shadow: 0 20px 25px -15px rgba(200, 128, 139, .3);
+	box-shadow: 0 20px 25px -15px rgba(200, 128, 139, .5);
+  overflow: hidden;
 }
 
-.timeline-card-fadein-right{
-  position: relative;
-  right: -55vw;
-	width: 40%;
-	padding: 10px 30px;
-	border-radius: 10px;
-	background: #FADDE1;
-	box-shadow: 0 20px 25px -15px rgba(200, 128, 139, .3)
+.timeline-item::before{
+    margin-left: 45%;
+    margin-top: 10vh;
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 26.0px;
+    border-color: transparent transparent transparent #FFA6C1;
 }
 
-time   {
+.timeline-card > img + h2 {
+  margin-top: -50px;
+  position: absolute;
+  color: #FFF;
+  font-weight: bolder;
+}
+
+.timeline-card img {
+  width: 120%;
+  position:relative;
+  margin-left: -10%;
+  margin-top: -10%;
+  filter: grayscale(50%) brightness(85%);
+
+}
+
+time {
   background: #FF5D8F;
 	display: inline-block;
 	color: #fff;
 	padding: 10px;
-  border-top-right-radius: 10px;
 	position: absolute;
 	top: 0;
-	right: 0;
+	right:0;
 }
 
 blockquote {
@@ -77,4 +111,10 @@ blockquote {
 	color: #9E6E75;
   border-left: 10px solid #E5A2AC;
 	padding: 0 20px;
+}
+
+@media screen and (max-width:540px) {
+  .timeline{
+    margin-right: 10%;
+  }
 }
